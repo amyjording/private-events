@@ -10,4 +10,4 @@ This project uses:
 
 ** Current notes:
 
-Style away so it's prettier to deal with from the start. Then get your highly unvalidated sign-up in place and then build your Events Controller. Allow for errors to show you the way, and test when you can. Just let it me messy.
+Will revisit the invite feature once I better understand nested forms and has_many through: association building.
