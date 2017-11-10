@@ -1,0 +1,7 @@
+<%= form_for(@invited) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+  	<%= f.collection_select :user_id, User.all, :id, :name, {}, {multiple: true} %>
+  </div>
+  <%= f.submit "Invite", class: "btn btn-primary" %>
+<% end %>

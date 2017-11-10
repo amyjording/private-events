@@ -1,0 +1,22 @@
+<% provide(:title, @user.name) %>
+<div class="row pushdown">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <h1>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h1>
+    </section>
+  </aside>
+  <div class="col-md-8">
+  	<% if @user.events.any? %>
+  		<h3>Created Events (<%= @user.events.count %>)</h3>
+    <%= render 'shared/created_events' %>
+		<% end %>
+    <hr>
+    <% if @user.attended_events.any? %>
+      <h3>Attending Events (<%= @user.attended_events.count %>)</h3>
+        <%= render 'shared/attending_events' %>
+    <% end %>
+	</div>
+</div>

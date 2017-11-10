@@ -1,0 +1,16 @@
+  		<ol class="events">
+        <h2>Upcoming Events:</h2>
+        <% if @attending_upcoming_events %>
+          <%= render @attending_upcoming_events %>
+        <% else %>
+          No current events found.
+        <% end %>
+			</ol>
+      <ol class="events">
+        <h2>Past Events:</h2>
+        <% if @attending_prev_events %>
+          <%= render @attending_prev_events %>
+        <% else %>
+          No past events found.
+        <% end %>
+      </ol>

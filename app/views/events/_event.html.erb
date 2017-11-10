@@ -1,0 +1,18 @@
+<li id="private event-<%= event.id %>">
+  <span class="user"><%= link_to event.title, event %></span>
+  <span class="content"> 
+    Hosted by: <%= link_to event.creator.name, event.creator %>
+    <% if event.event_date >= Time.now %>
+      Happening in <%= distance_of_time_in_words(Time.now, event.event_date) %>
+    <% else %> 
+      Happened <%= distance_of_time_in_words(Time.now, event.event_date) %> ago.
+    <% end %>
+  </span>
+  <span class="timestamp">
+    Posted <%= time_ago_in_words(event.created_at) %> ago.
+    <% if current_user?(event.creator) %>
+      <%= link_to "delete", event, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    <% end %>
+  </span>
+</li>
