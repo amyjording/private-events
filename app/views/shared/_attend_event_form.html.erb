@@ -1,0 +1,9 @@
+<%= form_for(@event) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <div class="field">
+  	<%= f.text :title, placeholder: "Event name" %>
+  	<%= f.datetime_select Date.today, prefix: :start_datetime %>
+    <%= f.text_area :description, placeholder: "Start your new private event..." %> 
+  </div>
+  <%= f.submit "Create Event", class: "btn btn-primary" %>
+<% end %>

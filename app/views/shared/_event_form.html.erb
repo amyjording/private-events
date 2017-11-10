@@ -1,0 +1,15 @@
+<%= form_for(@event) do |f| %>
+  Create a new event:
+  <div class="field">
+  	<%= f.text_field :title, placeholder: "Event name" %>
+  	<%= f.date_field :event_date, min: Date.today %>
+    <%= f.text_area :description, placeholder: "Start your new private event..." %> 
+    	And invite some guests to attend:
+    <div class="field">
+    	<%= f.fields_for (current_user.event_attendings.build) do |invite| %>
+    		<%= invite.collection_select :user_id, User.all, :id, :name, {multiple: true} %>
+    	<% end %>
+    </div>
+  </div>
+  <%= f.submit "Create Event", class: "btn btn-primary" %>
+<% end %>

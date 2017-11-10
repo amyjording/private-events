@@ -1,0 +1,36 @@
+<% provide(:title, @event.title) %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="events">
+      <h1>
+        <%= @event.title %> -
+          <% if @event.event_date >= Time.now %>
+            Happening in <%= distance_of_time_in_words(Time.now, @event.event_date) %>
+          <% else %> 
+            Happened <%= distance_of_time_in_words(Time.now, @event.event_date) %> ago.
+          <% end %> -
+          Created by -<%= link_to @event.creator.name, @event.creator %>
+      </h1><br>
+      <h2>
+          <% if current_user == @event.creator %>
+              Send an invite:
+              # NOTE TO SELF. ADD THE PEOPLE TO INVITE TO THE EVENT DURING THE EVENT CREATION STAGE INSTEAD OF HERE.
+              <div class="event_form">
+               <%= render 'shared/event_invite_form' %>
+              </div>     
+          <% elsif @event.invited_guests.include?(current_user) %>
+              # show the invite
+          <% else %>
+              # "you must be invited to attend"
+          <% end %>
+      </h2>
+      <hr>
+      <% if @event.attendees.any? %>
+      <h3>Event Attendees (<%= @event.attendees.count %>)</h3>
+      <ol class="events">
+        <%= render @event.attendees %>
+      </ol>
+    <% end %>
+    </div>
+  </div>
+</div>
