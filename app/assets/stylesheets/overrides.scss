@@ -10,7 +10,7 @@ $border-radius: 0px;
 
 body {
   background: #dedbb8;
-  background-image: url("ZenBG-1.png"), url("ZenBG-2.png");
+  background-image: url("https://s3-us-west-1.amazonaws.com/amydalabucket/images/ZenBG-1.png"), url("https://s3-us-west-1.amazonaws.com/amydalabucket/images/ZenBG-2.png");
   background-repeat: repeat-x, repeat;
   font: 100% $font-stack;
   padding-top: 60px;
